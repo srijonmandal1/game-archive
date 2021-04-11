@@ -19,9 +19,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "./test1.sh"
+    "test": "bash test1.sh"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Srijon Mandal and Others",
+  "license": "MIT"
 }
