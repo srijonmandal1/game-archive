@@ -27,8 +27,8 @@ mongoose.set('useFindAndModify', false);
 const app = express();
 
 // update express settings
-app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
+app.use(express.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
+app.use(express.json()); // parse application/json
 app.use(cookieParser());
 
 // require passport auth

@@ -62,6 +62,11 @@ function create ()
   this.explosionSound = this.sound.add("audio_explosion");
   this.pickupSound = this.sound.add("audio_pickup");
   this.music = this.sound.add("music");
+  this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+  this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+  this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+  this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+  this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
   var musicConfig = {
     mute: false,
@@ -175,13 +180,13 @@ function update ()
     return;
   }
 
-  if (cursors.left.isDown)
+  if (cursors.left.isDown || this.keyA.isDown || this.keyS.isDown)
   {
     player.setVelocityX(-160);
 
     player.anims.play('left', true);
   }
-  else if (cursors.right.isDown)
+  else if (cursors.right.isDown || this.keyD.isDown || this.keyW.isDown)
   {
     player.setVelocityX(160);
 
@@ -194,7 +199,7 @@ function update ()
     player.anims.play('turn');
   }
 
-  if (cursors.up.isDown && player.body.touching.down)
+  if ((cursors.up.isDown || this.keySpace.isDown) && player.body.touching.down)
   {
     player.setVelocityY(-330);
   }
